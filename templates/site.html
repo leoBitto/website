@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %} 
+        <!--=============Home=============-->
+        <section id="home" class="mw-100 min-vh-100 d-flex align-content-center align-items-center">
+            <div class="d-flex flex-column align-items-center p-5 mt-5 w-100">
+                <h1 class="">Leonardo Bitto</h1>
+                <hr style="width: 100px; height: 1px; border:none;color:#333;background-color:#333;"><hr>
+                <p class="">
+                Welcome to Leonardo Bitto website.
+                </p>
+                <p class="">
+                I'm a student of statistics in University of Florence, Italy.
+                </p>
+                <div class="p-4">
+                    <a class="link-dark" target="_blank" href="https://github.com/leoBitto">
+                        <i class="fa-brands fa-github fa-4x mx-3"></i>
+                    </a>
+                    <a class="link-dark" target="_blank" href="https://twitter.com/bittoleo">
+                        <i class="fa-brands fa-twitter fa-4x mx-3"></i>
+                    </a>
+                    <a class="link-dark" target="_blank" href="https://www.linkedin.com/in/leonardo-bitto-b926541a1/">
+                        <i class="fa-brands fa-linkedin fa-4x mx-3"></i>
+                    </a>
+                </div>
+                <a style="font-size: 80px; color: #000; padding-top:5rem" href="#intro">﹀</a>
+            </div>
+        </section>
+
+        <!--=============Intro=============-->
+        <section id="intro" class="w-100  d-flex align-content-center align-items-center bg-light">
+            <div class="d-flex justify-content-center flex-column flex-lg-row align-items-center p-5 mt-5 w-100">
+                <img class="col-8 col-md-2 p-3 " src="{% static 'images/MyPhoto.jpg' %}">
+                
+                <div class="col-10 col-md-6 px-2">
+                    <p class="">
+                    Hello world! My name is leonardo Bitto. 
+                    </p>
+                    <p class=""> 
+                    I'm a student in the university of Florence, Italy. I study statistics in the course of economics.
+                    <br>I will graduate in the second half of 2023.
+                    <br>
+                    <br>
+                    I'm interested in data visulization especially applied to the finance sector.
+                    <br>
+                    <br>
+                    Django is another interest of mine. I like to develop websites with this framework that do not revolve around data necessarily.
+                    </p>
+                    <p>Check out my <a href="">GitHub</a> Repo</p>
+                </div>
+            </div>
+        </section>
+
+        <!--=============PORTFOLIO=============-->
+        <section id="portfolio" class="p-4" style="min-height:80vh;">
+            <h4 class="text-center pt-5"> My works </h4>
+            <div class="card-group mt-3">
+
+                <div class="card text-center m-3">
+                    <img class="card-img-top" src="{% static 'images/sitoPiero.png' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">WebSite</h5>
+                        <p class="card-text">A website made with Django. It allow to position images in a flatpage </p>
+                        <a target="_blank" href="https://www.giuliopierini.com/" class="btn btn-outline-dark">Go to the website</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Django
+                    </div>
+                </div>
+
+                <div class="card text-center m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Finance</h5>
+                        <p class="card-text">This is part of this website. it is a tool written in python that allow to retrieve and visualize data about stocks and manage portfolios</p>
+                        <a href="#" class="btn btn-outline-dark">Finance</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Django, Python, Statistics, Finance
+                    </div>
+                </div>
+
+                <div class="card text-center m-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Notes</h5>
+                        <p class="card-text">this collection of personal notes taken during my studies in statistics in university.</p>
+                        <a href="#" class="btn btn-outline-dark">Notes</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Django, Python, Statistics 
+                    </div>
+                </div> 
+
+            <!-- end of card deck -->               
+            </div>
+            
+        </section>
+
+        <!--=============CONTACT=============-->
+        <section id="contact" class="min-vh-80 d-flex align-content-center align-items-center bg-light py-5">
+           <div class="w-100 d-flex flex-column align-content-center align-items-center">
+                <h4 class="text-center pt-5"> Get in touch </h4>
+                <p class="text-center fw-bold p-5"> leonardobitto@gmail.com </p>
+                <div class="p-4">
+                    <a class="link-dark" target="_blank" href="https://github.com/leoBitto">
+                        <i class="fa-brands fa-github fa-4x mx-3"></i>
+                    </a>
+                    <a class="link-dark" target="_blank" href="https://twitter.com/bittoleo">
+                        <i class="fa-brands fa-twitter fa-4x mx-3"></i>
+                    </a>
+                    <a class="link-dark" target="_blank" href="https://www.linkedin.com/in/leonardo-bitto-b926541a1/">
+                        <i class="fa-brands fa-linkedin fa-4x mx-3"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer style="height:100px; background-color:#000" class="d-flex justify-content-center align-items-center">
+
+            <div class="text-center fst-italic fs-6 text-muted">
+                website createb by Leonardo Bitto ( with Django! )
+            </div>
+            
+        </footer>
+{% endblock %} 
