@@ -4,7 +4,6 @@ from django.utils.html import format_html
 ### information models
 class Gallery_image(models.Model):
     gallery_name = models.CharField(max_length=100)
-    header = models.CharField(max_length=100, default="", blank=True, null=True)
     description = models.CharField(max_length=300, default="", blank=True, null=True)
     img = models.ImageField(upload_to="", blank=True, null=True)
     is_first = models.BooleanField(default=False)

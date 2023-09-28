@@ -3,7 +3,7 @@ from .models import Gallery_image,Contact,Opening_hour
 
 
 class Gallery_imageAdmin(admin.ModelAdmin):
-    list_display=('id', 'description', 'is_first', 'show_image')
+    list_display=('id', 'gallery_name', 'description', 'is_first', 'show_image')
 
 
 class ContactAdmin(admin.ModelAdmin):
