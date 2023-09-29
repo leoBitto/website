@@ -19,23 +19,16 @@
             </div>
         {% else %}
 
-            <!-- Lista dei contatti -->
-            <div class="col-md-6">
-                <h2>Contatti</h2>
-                <ul class="list-group">
-                    {% for contact in contacts %}
-                        <li class="list-group-item">
-                            <h5 class="mb-1">Telefono: {{ contact.phone }}</h5>
-                            <p class="mb-1">Email: {{ contact.mail }}</p>
-                             <form action="{% url 'website:delete_contact' contact.id %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Elimina</button>
-                            </form> 
-                        </li>
-                    {% endfor %}
-                </ul>
-               
-            </div>
+        <!-- Lista dei contatti -->
+        <div class="col-md-6">
+            <h2>Contatti</h2>
+            <p class="mb-1">Telefono: {{ contacts.0.phone }}</p>
+            <p class="mb-1">Email: {{ contacts.0.mail }}</p>
+            <form action="{% url 'website:delete_contact' contacts.0.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Elimina</button>
+            </form> 
+        </div>
         {% endif %}
     </div>
 </div>

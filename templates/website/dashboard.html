@@ -16,13 +16,16 @@
               <div class="collapse show" id="menuAccordion">
                 <ul class="nav flex-column ms-3">
                   <li class="nav-item">
-                      <a class="nav-link" hx-target="#main-content" hx-swap="innerHTML" hx-trigger="click" hx-get="{% url 'website:gallery_page' %}" >Galleria Immagini</a>
+                      <a class="nav-link" hx-target="#main-content" hx-swap="innerHTML" hx-trigger="click" hx-get="{% url 'website:image_page' %}" >Immagini</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" hx-target="#main-content" hx-swap="innerHTML" hx-trigger="click" hx-get="{% url 'website:contact_page' %}">Contatti</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" hx-target="#main-content" hx-swap="innerHTML" hx-trigger="click" hx-get="{% url 'website:opening_hours_page' %}">Orari di Apertura</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" hx-target="#main-content" hx-swap="innerHTML" hx-trigger="click" hx-get="{% url 'website:gallery_page' %}">Galleria</a>
                   </li>
                 </ul>
               </div>

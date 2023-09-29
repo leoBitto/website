@@ -1,65 +1,102 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Gallery_image, Contact, Opening_hour
-from .forms import GalleryImageForm, ContactForm, OpeningHourForm
-from django.http import JsonResponse
-from django.template.loader import render_to_string
+from .models import Image, Contact, Opening_hour, Gallery
+from .forms import ImageForm, ContactForm, OpeningHourForm, GalleryForm
 from django.contrib import messages
-
 
 # this is the part of the website accessible only to admin
 @login_required
 def dashboard(request):
     
     # Recupera tutte le istanze dei modelli
-    gallery_images = Gallery_image.objects.all()
+    gallery_images = Image.objects.all()
     contacts = Contact.objects.all()
     opening_hours = Opening_hour.objects.all()
+    gallery = Gallery.objects.all()
 
     context = {
         'gallery_images': gallery_images,
         'contacts': contacts,
         'opening_hours': opening_hours,
+        'gallery': gallery,
     }
 
     return render(request, 'website/dashboard.html', context)
 
 
-def gallery_page(request):
-    gallery_images = Gallery_image.objects.all()
-    form = GalleryImageForm()
+def image_page(request):
+    images = Image.objects.all()
+    form = ImageForm()
 
     context = {
-        'gallery_images': gallery_images,
+        'images': images,
+        'form': form,
+    }
+
+    return render(request, 'website/image_page.html', context)
+    
+
+def add_image(request):
+    print(request)
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Immagine aggiunta con successo.')
+            return redirect('website:dashboard')
+        else:
+            messages.error(request, 'Si è verificato un errore. Si prega di correggere il modulo.')
+    else:
+        form = ImageForm()
+
+    return render(request, 'website/image_page.html', {'form': form})
+
+
+def delete_image(request, image_id):
+    # Trova l'immagine nel database
+    image = get_object_or_404(Image, id=image_id)
+
+    # Elimina l'immagine
+    image.delete()
+    messages.success(request, 'Immagine eliminata con successo.')
+    return redirect('website:dashboard')
+
+
+def gallery_page(request):
+    galleries = Gallery.objects.all()
+    form = GalleryForm()
+
+    context = {
+        'galleries': galleries,
         'form': form,
     }
 
     return render(request, 'website/gallery_page.html', context)
     
 
-def add_gallery_image(request):
-    print(request.POST)
+def add_gallery(request):
+    print(request)
     if request.method == 'POST':
-        form = GalleryImageForm(request.POST, request.FILES)
+        form = GalleryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Immagine aggiunta con successo.')
-            return redirect('website:gallery_page')
+            messages.success(request, 'Galleria aggiunta con successo.')
+            return redirect('website:dashboard')
         else:
             messages.error(request, 'Si è verificato un errore. Si prega di correggere il modulo.')
     else:
-        form = GalleryImageForm()
+        form = ImageForm()
 
     return render(request, 'website/gallery_page.html', {'form': form})
 
 
-def delete_gallery_image(request, image_id):
+def delete_gallery(request, gallery_id):
     # Trova l'immagine nel database
-    image = get_object_or_404(Gallery_image, id=image_id)
+    gallery = get_object_or_404(Gallery, id=gallery_id)
 
     # Elimina l'immagine
-    image.delete()
-    messages.success(request, 'Immagine eliminata con successo.')
+    gallery.delete()
+    messages.success(request, 'Galleria eliminata con successo.')
     return redirect('website:dashboard')
 
 
@@ -112,7 +149,7 @@ def add_opening_hour(request):
         form = OpeningHourForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Orario aggiunto con successo.')
+            messages.success(request, 'Orario aggiunto con successo. Ricorda di cambiare gli orari anche su Google.')
             return redirect('website:opening_hours_page')
         else:
             messages.error(request, 'Si è verificato un errore. Si prega di correggere il modulo.')
