@@ -18,7 +18,6 @@ class Gallery(models.Model):
         return self.name
     
 
-
 class Image(models.Model):
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images', null=True, blank=True, help_text="Non necessario se non deve essere inserita in una galleria")
     description = models.CharField(max_length=300, default="", blank=True, null=True, help_text="identifica l'immagine")
@@ -39,6 +38,7 @@ class Image(models.Model):
             os.remove(path)
 
         super().delete(*args, **kwargs)
+
 
 class Contact(models.Model):
     phone = models.CharField(max_length=100, blank=True, null=True)
