@@ -23,7 +23,7 @@ def dashboard(request):
 
     return render(request, 'website/dashboard.html', context)
 
-
+@login_required
 def image_page(request):
     images = Image.objects.all()
     form = ImageForm()
@@ -35,7 +35,7 @@ def image_page(request):
 
     return render(request, 'website/image_page.html', context)
     
-
+@login_required
 def add_image(request):
     print(request)
     if request.method == 'POST':
@@ -51,7 +51,7 @@ def add_image(request):
 
     return render(request, 'website/image_page.html', {'form': form})
 
-
+@login_required
 def delete_image(request, image_id):
     # Trova l'immagine nel database
     image = get_object_or_404(Image, id=image_id)
@@ -61,7 +61,7 @@ def delete_image(request, image_id):
     messages.success(request, 'Immagine eliminata con successo.')
     return redirect('website:dashboard')
 
-
+@login_required
 def gallery_page(request):
     galleries = Gallery.objects.all()
     form = GalleryForm()
@@ -73,7 +73,7 @@ def gallery_page(request):
 
     return render(request, 'website/gallery_page.html', context)
     
-
+@login_required
 def add_gallery(request):
     print(request)
     if request.method == 'POST':
@@ -89,7 +89,7 @@ def add_gallery(request):
 
     return render(request, 'website/gallery_page.html', {'form': form})
 
-
+@login_required
 def delete_gallery(request, gallery_id):
     # Trova l'immagine nel database
     gallery = get_object_or_404(Gallery, id=gallery_id)
@@ -100,7 +100,7 @@ def delete_gallery(request, gallery_id):
     return redirect('website:dashboard')
 
 
-
+@login_required
 def contact_page(request):
     contacts = Contact.objects.all()
     form = ContactForm()
@@ -111,6 +111,7 @@ def contact_page(request):
 
     return render(request, 'website/contact_page.html', context)
 
+@login_required
 def add_contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -125,7 +126,7 @@ def add_contact(request):
 
     return render(request, 'website/contact_page.html', {'form': form})
 
-
+@login_required
 def delete_contact(request, contact_id):
     contact = get_object_or_404(Contact, pk=contact_id)
     contact.delete()
@@ -133,7 +134,7 @@ def delete_contact(request, contact_id):
     return redirect('website:dashboard')
 
 
-
+@login_required
 def opening_hours_page(request):
     opening_hours = Opening_hour.objects.all()
     form = OpeningHourForm()
@@ -144,6 +145,7 @@ def opening_hours_page(request):
 
     return render(request, 'website/opening_hours_page.html', context)
 
+@login_required
 def add_opening_hour(request):
     if request.method == 'POST':
         form = OpeningHourForm(request.POST)
@@ -158,6 +160,7 @@ def add_opening_hour(request):
 
     return render(request, 'website/opening_hours_page.html', {'form': form})
 
+@login_required
 def delete_opening_hour(request, opening_hour_id):
     hours = get_object_or_404(Opening_hour, pk=opening_hour_id)
     hours.delete()
