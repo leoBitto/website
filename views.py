@@ -21,7 +21,7 @@ def dashboard(request):
         'gallery': gallery,
     }
 
-    return render(request, 'website/dashboard.html', context)
+    return render(request, 'website/dashboard/dashboard.html', context)
 
 @login_required
 def image_page(request):
@@ -33,7 +33,7 @@ def image_page(request):
         'form': form,
     }
 
-    return render(request, 'website/image_page.html', context)
+    return render(request, 'website/dashboard/image_page.html', context)
     
 @login_required
 def add_image(request):
@@ -49,7 +49,7 @@ def add_image(request):
     else:
         form = ImageForm()
 
-    return render(request, 'website/image_page.html', {'form': form})
+    return render(request, 'website/dashboard/image_page.html', {'form': form})
 
 @login_required
 def delete_image(request, image_id):
@@ -71,7 +71,7 @@ def gallery_page(request):
         'form': form,
     }
 
-    return render(request, 'website/gallery_page.html', context)
+    return render(request, 'website/dashboard/gallery_page.html', context)
     
 @login_required
 def add_gallery(request):
@@ -87,7 +87,7 @@ def add_gallery(request):
     else:
         form = ImageForm()
 
-    return render(request, 'website/gallery_page.html', {'form': form})
+    return render(request, 'website/dashboard/gallery_page.html', {'form': form})
 
 @login_required
 def delete_gallery(request, gallery_id):
@@ -109,7 +109,7 @@ def contact_page(request):
         'form':form,
     }
 
-    return render(request, 'website/contact_page.html', context)
+    return render(request, 'website/dashboard/contact_page.html', context)
 
 @login_required
 def add_contact(request):
@@ -124,7 +124,7 @@ def add_contact(request):
     else:
         form = ContactForm()
 
-    return render(request, 'website/contact_page.html', {'form': form})
+    return render(request, 'website/dashboard/contact_page.html', {'form': form})
 
 @login_required
 def delete_contact(request, contact_id):
@@ -143,7 +143,7 @@ def opening_hours_page(request):
         'form':form,
     }
 
-    return render(request, 'website/opening_hours_page.html', context)
+    return render(request, 'website/dashboard/opening_hours_page.html', context)
 
 @login_required
 def add_opening_hour(request):
@@ -158,7 +158,7 @@ def add_opening_hour(request):
     else:
         form = OpeningHourForm()
 
-    return render(request, 'website/opening_hours_page.html', {'form': form})
+    return render(request, 'website/dashboard/opening_hours_page.html', {'form': form})
 
 @login_required
 def delete_opening_hour(request, opening_hour_id):
