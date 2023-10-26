@@ -2,7 +2,29 @@
 {% load static %}
 {% block content %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Transactions</h5>
+                        
+                        <a href="{% url 'transactions:base' %}" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Screener</h5>
+                        
+                        <a href="{% url 'screener:index' %}" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}
