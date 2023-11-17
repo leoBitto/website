@@ -1,28 +1,35 @@
 {% extends "website/base.html" %}
 {% load static %}
+{% block title %}Homepage{% endblock title %}
 {% block content %}
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Transactions</h5>
-                        
-                        <a href="{% url 'transactions:base' %}" class="btn btn-primary">Go</a>
-                    </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-around">
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Transactions</h5>
+                    
+                    <a href="{% url 'transactions:base' %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Screener</h5>
+                    
+                    <a href="{% url 'screener:index' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Screener</h5>
-                        
-                        <a href="{% url 'screener:index' %}" class="btn btn-primary">Go</a>
-                    </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Habits</h5>
+                    
+                    <a href="{% url 'habits:overview' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
+        
         </div>
     </div>
 
